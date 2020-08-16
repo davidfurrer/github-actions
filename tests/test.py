@@ -7,7 +7,7 @@ import random
 import string
 from subprocess import getstatusoutput, getoutput
 
-prg = '../src/howler.py'
+prg = 'src/howler.py'
 
 
 # --------------------------------------------------

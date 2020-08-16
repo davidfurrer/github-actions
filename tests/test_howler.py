@@ -67,26 +67,3 @@ def test_text_outfile():
     finally:
         if os.path.isfile(out_file):
             os.remove(out_file)
-
-
-# --------------------------------------------------
-def test_file():
-    """Test file in/out"""
-
-    for expected_file in os.listdir('test-outs'):
-        try:
-            out_file = random_string()
-            if os.path.isfile(out_file):
-                os.remove(out_file)
-
-            basename = os.path.basename(expected_file)
-            in_file = os.path.join('../inputs', basename)
-            out = getoutput(f'{prg} {out_flag()} {out_file} {in_file}')
-            assert out.strip() == ''
-            produced = open(out_file).read().rstrip()
-            expected = open(os.path.join('test-outs',
-                                         expected_file)).read().strip()
-            assert expected == produced
-        finally:
-            if os.path.isfile(out_file):
-                os.remove(out_file)
